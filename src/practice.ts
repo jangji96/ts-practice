@@ -42,9 +42,9 @@ interface Shape {
 class Circle implements Shape {
     // `implements` 키워드를 사용하여 해당 클래스가 Shape interface 의 조건을 충족하겠다는 것을 명시합니다.
 
-    radius: number; // 멤버 변수 radius 값을 설정합니다.
+    // radius: number; // 멤버 변수 radius 값을 설정합니다.
 
-    constructor(radius: number) {
+    constructor(public radius: number) {
         this.radius = radius;
     }
     
@@ -55,9 +55,9 @@ class Circle implements Shape {
 }
 
 class Rectangle implements Shape {
-    width: number;
-    height: number;
-    constructor(width: number, height: number){
+    // width: number;
+    // height: number;
+    constructor(private width: number,private height: number){
         this.width = width;
         this.height = height;
     }
@@ -65,6 +65,13 @@ class Rectangle implements Shape {
         return this.width * this.height;
     }
 }
+
+const circle = new Circle(5);
+const rectangle = new Rectangle(10, 5);
+
+console.log(circle.radius);
+// console.log(rectangle.width); // priavate 조회 불가
+
 
 const shapes: Shape[] = [new Circle(5), new Rectangle(10,5)];
 
