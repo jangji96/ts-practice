@@ -47,9 +47,9 @@ class Circle implements Shape {
     constructor(public radius: number) {
         this.radius = radius;
     }
-    
+
     // 너비를 가져오는 함수를 구현합니다.
-    getArea(){
+    getArea() {
         return this.radius * this.radius * Math.PI;
     }
 }
@@ -57,11 +57,11 @@ class Circle implements Shape {
 class Rectangle implements Shape {
     // width: number;
     // height: number;
-    constructor(private width: number,private height: number){
+    constructor(private width: number, private height: number) {
         this.width = width;
         this.height = height;
     }
-    getArea(){
+    getArea() {
         return this.width * this.height;
     }
 }
@@ -73,8 +73,28 @@ console.log(circle.radius);
 // console.log(rectangle.width); // priavate 조회 불가
 
 
-const shapes: Shape[] = [new Circle(5), new Rectangle(10,5)];
+const shapes: Shape[] = [new Circle(5), new Rectangle(10, 5)];
 
 shapes.forEach(shape => {
     console.log(shape.getArea());
 })
+
+interface Person {
+    name: string;
+    age?: number; // 물음표가 들어갔다는 것은, 설정을 해도 되고 안해도 되는 값이라는 것을 의미합니다.
+}
+interface Developer extends Person {
+    skills: string[];
+}
+
+const person: Person = {
+    name: '김사람',
+    age: 20
+};
+
+const expert: Developer = {
+    name: '김개발',
+    skills: ['javascript', 'react']
+};
+
+const people: Person[] = [person, expert];
